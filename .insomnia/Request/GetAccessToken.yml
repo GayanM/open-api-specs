@@ -1,0 +1,38 @@
+_id: GetAccessToken
+type: Request
+parentId: fld_wrk_6eece2de1c2f4677a1d35b17edc4c91e44357ae5
+modified: 1678964617559
+created: 1678964549865
+url: "{{ base_url }}/auth/token"
+name: Get Access Token
+description: ""
+method: POST
+body:
+  mimeType: application/x-www-form-urlencoded
+  params:
+    - name: grant_type
+      disabled: false
+      value: string
+    - name: username
+      disabled: false
+      value: string
+    - name: password
+      disabled: false
+      value: string
+    - name: scope
+      disabled: false
+      value: string
+parameters: []
+headers:
+  - name: Content-Type
+    disabled: false
+    value: application/x-www-form-urlencoded
+authentication: {}
+metaSortKey: -1678964549865
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

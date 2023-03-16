@@ -1,0 +1,27 @@
+_id: Paymentsubmissionstatus
+type: Request
+parentId: fld_wrk_6eece2de1c2f4677a1d35b17edc4c91e44357ae5
+modified: 1678964617557
+created: 1678964617557
+url: "{{ base_url }}/payments/1234"
+name: Payment submission status
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: Authorization
+    disabled: false
+    value: Bearer {token}
+  - name: apikey
+    disabled: false
+    value: string
+authentication: {}
+metaSortKey: -1678964617557
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

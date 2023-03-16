@@ -1,0 +1,751 @@
+_id: spc_dca1b37e53dc4503b7cdb7f357f8be70
+type: ApiSpec
+parentId: wrk_6eece2de1c2f4677a1d35b17edc4c91e
+modified: 1678964617562
+created: 1678964593156
+fileName: Payments.yaml
+contents: >
+  {
+      "swagger": "2.0",
+      "info": {
+        "version": "1.0",
+        "title": "Payments",
+        "contact": {}
+      },
+      "host": "api.icurity.cloud",
+      "basePath": "/",
+      "securityDefinitions": {},
+      "schemes": [
+        "https"
+      ],
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "paths": {
+        "/auth/token": {
+          "post": {
+            "summary": "Get Access Token",
+            "tags": [
+              "Payments"
+            ],
+            "operationId": "GetAccessToken",
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "consumes": [
+              "application/x-www-form-urlencoded"
+            ],
+            "parameters": [
+              {
+                "name": "grant_type",
+                "in": "formData",
+                "required": true,
+                "type": "string",
+                "description": ""
+              },
+              {
+                "name": "username",
+                "in": "formData",
+                "required": true,
+                "type": "string",
+                "description": ""
+              },
+              {
+                "name": "password",
+                "in": "formData",
+                "required": true,
+                "type": "string",
+                "description": ""
+              },
+              {
+                "name": "scope",
+                "in": "formData",
+                "required": true,
+                "type": "string",
+                "description": ""
+              }
+            ],
+            "responses": {
+              "default": {
+                "description": "",
+                "schema": {
+                  "$ref": "#/definitions/Get-Access-Token-Payments"
+                },
+                "examples": {
+                  "application/json": {
+                    "access_token": "0175adde-7552-400a-9f80-745443f9aedd",
+                    "scope": "profile payments.*.*",
+                    "token_type": "bearer",
+                    "expires_in": 299
+                  }
+                },
+                "headers": {}
+              }
+            },
+            "security": []
+          }
+        },
+        "/payments/submit-payment": {
+          "get": {
+            "summary": "Submit payment",
+            "tags": [
+              "Payments"
+            ],
+            "operationId": "Submitpayment",
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "Authorization",
+                "in": "header",
+                "required": true,
+                "default": "Bearer {token}",
+                "type": "string"
+              },
+              {
+                "name": "apikey",
+                "in": "header",
+                "required": true,
+                "type": "string",
+                "description": ""
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/definitions/Submitpayment"
+                },
+                "examples": {
+                  "application/json": {
+                    "Data": {
+                      "DomesticPaymentId": "26381573",
+                      "ConsentId": "8e0672a2-1ab6-494b-bf28-8e692def102d",
+                      "Status": "AcceptedSettlementCompleted",
+                      "CreationDateTime": "2022-12-28T05:09:46+00:00",
+                      "StatusUpdateDateTime": "2022-12-28T05:14:59+00:00",
+                      "Refund": {
+                        "Account": {
+                          "Identification": "1987651009427721",
+                          "Name": "Ronaldo Carlos",
+                          "SchemeName": "SortCodeAccountNumber",
+                          "SecondaryIdentification": "1009427721"
+                        }
+                      },
+                      "Initiation": {
+                        "InstructionIdentification": "abc112",
+                        "EndToEndIdentification": "def123",
+                        "InstructedAmount": {
+                          "Amount": "55.60",
+                          "Currency": "ZAR"
+                        },
+                        "DebtorAccount": {
+                          "SchemeName": "Profile",
+                          "Identification": "d16a3c533d71f49ae628bf7cf7993c1b"
+                        },
+                        "CreditorAccount": {
+                          "SchemeName": "SortCodeAccountNumber",
+                          "Identification": "1987651009427726",
+                          "Name": "ACME Inc",
+                          "SecondaryIdentification": "1009427726"
+                        },
+                        "RemittanceInformation": {
+                          "Reference": "FRESCO-101",
+                          "Unstructured": "Maintenance Fee"
+                        }
+                      }
+                    },
+                    "Links": {
+                      "Self": "https://api.nedbank.co.za/apimarket/sandbox/open-banking/v3.1/pisp/domestic-payments/26381573"
+                    },
+                    "Meta": {}
+                  }
+                },
+                "headers": {}
+              }
+            }
+          }
+        },
+        "/payments/1234": {
+          "get": {
+            "summary": "Payment submission status",
+            "tags": [
+              "Payments"
+            ],
+            "operationId": "Paymentsubmissionstatus",
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "Authorization",
+                "in": "header",
+                "required": true,
+                "default": "Bearer {token}",
+                "type": "string"
+              },
+              {
+                "name": "apikey",
+                "in": "header",
+                "required": true,
+                "type": "string",
+                "description": ""
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/definitions/Paymentsubmissionstatus"
+                },
+                "examples": {
+                  "application/json": {
+                    "Data": {
+                      "DomesticPaymentId": "26381573",
+                      "ConsentId": "8e0672a2-1ab6-494b-bf28-8e692def102d",
+                      "Status": "AcceptedSettlementCompleted",
+                      "CreationDateTime": "2022-12-28T05:09:46+00:00",
+                      "StatusUpdateDateTime": "2022-12-28T05:14:59+00:00",
+                      "Initiation": {
+                        "InstructionIdentification": "abc112",
+                        "EndToEndIdentification": "def123",
+                        "InstructedAmount": {
+                          "Amount": "55.60",
+                          "Currency": "ZAR"
+                        },
+                        "DebtorAccount": {
+                          "SchemeName": "Profile",
+                          "Identification": "d16a3c533d71f49ae628bf7cf7993c1b"
+                        },
+                        "CreditorAccount": {
+                          "SchemeName": "SortCodeAccountNumber",
+                          "Identification": "1987651009427726",
+                          "Name": "ACME Inc",
+                          "SecondaryIdentification": "1009427726"
+                        },
+                        "RemittanceInformation": {
+                          "Reference": "FRESCO-101",
+                          "Unstructured": "Maintenance Fee"
+                        }
+                      }
+                    },
+                    "Links": {
+                      "Self": "https://api.nedbank.co.za/apimarket/sandbox/open-banking/v3.1/pisp/domestic-payments/26381573"
+                    },
+                    "Meta": {}
+                  }
+                },
+                "headers": {}
+              }
+            }
+          }
+        }
+      },
+      "definitions": {
+        "Get-Access-Token-Payments": {
+          "title": "Get-Access-Token-Payments",
+          "example": {
+            "access_token": "0175adde-7552-400a-9f80-745443f9aedd",
+            "scope": "profile payments.*.*",
+            "token_type": "bearer",
+            "expires_in": 299
+          },
+          "type": "object",
+          "properties": {
+            "access_token": {
+              "type": "string"
+            },
+            "scope": {
+              "type": "string"
+            },
+            "token_type": {
+              "type": "string"
+            },
+            "expires_in": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "required": [
+            "access_token",
+            "scope",
+            "token_type",
+            "expires_in"
+          ]
+        },
+        "Submitpayment": {
+          "title": "Submitpayment",
+          "example": {
+            "Data": {
+              "DomesticPaymentId": "26381573",
+              "ConsentId": "8e0672a2-1ab6-494b-bf28-8e692def102d",
+              "Status": "AcceptedSettlementCompleted",
+              "CreationDateTime": "2022-12-28T05:09:46+00:00",
+              "StatusUpdateDateTime": "2022-12-28T05:14:59+00:00",
+              "Refund": {
+                "Account": {
+                  "Identification": "1987651009427721",
+                  "Name": "Ronaldo Carlos",
+                  "SchemeName": "SortCodeAccountNumber",
+                  "SecondaryIdentification": "1009427721"
+                }
+              },
+              "Initiation": {
+                "InstructionIdentification": "abc112",
+                "EndToEndIdentification": "def123",
+                "InstructedAmount": {
+                  "Amount": "55.60",
+                  "Currency": "ZAR"
+                },
+                "DebtorAccount": {
+                  "SchemeName": "Profile",
+                  "Identification": "d16a3c533d71f49ae628bf7cf7993c1b"
+                },
+                "CreditorAccount": {
+                  "SchemeName": "SortCodeAccountNumber",
+                  "Identification": "1987651009427726",
+                  "Name": "ACME Inc",
+                  "SecondaryIdentification": "1009427726"
+                },
+                "RemittanceInformation": {
+                  "Reference": "FRESCO-101",
+                  "Unstructured": "Maintenance Fee"
+                }
+              }
+            },
+            "Links": {
+              "Self": "https://api.nedbank.co.za/apimarket/sandbox/open-banking/v3.1/pisp/domestic-payments/26381573"
+            },
+            "Meta": {}
+          },
+          "type": "object",
+          "properties": {
+            "Data": {
+              "$ref": "#/definitions/Data"
+            },
+            "Links": {
+              "$ref": "#/definitions/Links"
+            },
+            "Meta": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "Data",
+            "Links",
+            "Meta"
+          ]
+        },
+        "Data": {
+          "title": "Data",
+          "example": {
+            "DomesticPaymentId": "26381573",
+            "ConsentId": "8e0672a2-1ab6-494b-bf28-8e692def102d",
+            "Status": "AcceptedSettlementCompleted",
+            "CreationDateTime": "2022-12-28T05:09:46+00:00",
+            "StatusUpdateDateTime": "2022-12-28T05:14:59+00:00",
+            "Refund": {
+              "Account": {
+                "Identification": "1987651009427721",
+                "Name": "Ronaldo Carlos",
+                "SchemeName": "SortCodeAccountNumber",
+                "SecondaryIdentification": "1009427721"
+              }
+            },
+            "Initiation": {
+              "InstructionIdentification": "abc112",
+              "EndToEndIdentification": "def123",
+              "InstructedAmount": {
+                "Amount": "55.60",
+                "Currency": "ZAR"
+              },
+              "DebtorAccount": {
+                "SchemeName": "Profile",
+                "Identification": "d16a3c533d71f49ae628bf7cf7993c1b"
+              },
+              "CreditorAccount": {
+                "SchemeName": "SortCodeAccountNumber",
+                "Identification": "1987651009427726",
+                "Name": "ACME Inc",
+                "SecondaryIdentification": "1009427726"
+              },
+              "RemittanceInformation": {
+                "Reference": "FRESCO-101",
+                "Unstructured": "Maintenance Fee"
+              }
+            }
+          },
+          "type": "object",
+          "properties": {
+            "DomesticPaymentId": {
+              "type": "string"
+            },
+            "ConsentId": {
+              "type": "string"
+            },
+            "Status": {
+              "type": "string"
+            },
+            "CreationDateTime": {
+              "type": "string"
+            },
+            "StatusUpdateDateTime": {
+              "type": "string"
+            },
+            "Refund": {
+              "$ref": "#/definitions/Refund"
+            },
+            "Initiation": {
+              "$ref": "#/definitions/Initiation"
+            }
+          },
+          "required": [
+            "DomesticPaymentId",
+            "ConsentId",
+            "Status",
+            "CreationDateTime",
+            "StatusUpdateDateTime",
+            "Refund",
+            "Initiation"
+          ]
+        },
+        "Refund": {
+          "title": "Refund",
+          "example": {
+            "Account": {
+              "Identification": "1987651009427721",
+              "Name": "Ronaldo Carlos",
+              "SchemeName": "SortCodeAccountNumber",
+              "SecondaryIdentification": "1009427721"
+            }
+          },
+          "type": "object",
+          "properties": {
+            "Account": {
+              "$ref": "#/definitions/Account"
+            }
+          },
+          "required": [
+            "Account"
+          ]
+        },
+        "Account": {
+          "title": "Account",
+          "example": {
+            "Identification": "1987651009427721",
+            "Name": "Ronaldo Carlos",
+            "SchemeName": "SortCodeAccountNumber",
+            "SecondaryIdentification": "1009427721"
+          },
+          "type": "object",
+          "properties": {
+            "Identification": {
+              "type": "string"
+            },
+            "Name": {
+              "type": "string"
+            },
+            "SchemeName": {
+              "type": "string"
+            },
+            "SecondaryIdentification": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Identification",
+            "Name",
+            "SchemeName",
+            "SecondaryIdentification"
+          ]
+        },
+        "Initiation": {
+          "title": "Initiation",
+          "example": {
+            "InstructionIdentification": "abc112",
+            "EndToEndIdentification": "def123",
+            "InstructedAmount": {
+              "Amount": "55.60",
+              "Currency": "ZAR"
+            },
+            "DebtorAccount": {
+              "SchemeName": "Profile",
+              "Identification": "d16a3c533d71f49ae628bf7cf7993c1b"
+            },
+            "CreditorAccount": {
+              "SchemeName": "SortCodeAccountNumber",
+              "Identification": "1987651009427726",
+              "Name": "ACME Inc",
+              "SecondaryIdentification": "1009427726"
+            },
+            "RemittanceInformation": {
+              "Reference": "FRESCO-101",
+              "Unstructured": "Maintenance Fee"
+            }
+          },
+          "type": "object",
+          "properties": {
+            "InstructionIdentification": {
+              "type": "string"
+            },
+            "EndToEndIdentification": {
+              "type": "string"
+            },
+            "InstructedAmount": {
+              "$ref": "#/definitions/InstructedAmount"
+            },
+            "DebtorAccount": {
+              "$ref": "#/definitions/DebtorAccount"
+            },
+            "CreditorAccount": {
+              "$ref": "#/definitions/CreditorAccount"
+            },
+            "RemittanceInformation": {
+              "$ref": "#/definitions/RemittanceInformation"
+            }
+          },
+          "required": [
+            "InstructionIdentification",
+            "EndToEndIdentification",
+            "InstructedAmount",
+            "DebtorAccount",
+            "CreditorAccount",
+            "RemittanceInformation"
+          ]
+        },
+        "InstructedAmount": {
+          "title": "InstructedAmount",
+          "example": {
+            "Amount": "55.60",
+            "Currency": "ZAR"
+          },
+          "type": "object",
+          "properties": {
+            "Amount": {
+              "type": "string"
+            },
+            "Currency": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Amount",
+            "Currency"
+          ]
+        },
+        "DebtorAccount": {
+          "title": "DebtorAccount",
+          "example": {
+            "SchemeName": "Profile",
+            "Identification": "d16a3c533d71f49ae628bf7cf7993c1b"
+          },
+          "type": "object",
+          "properties": {
+            "SchemeName": {
+              "type": "string"
+            },
+            "Identification": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "SchemeName",
+            "Identification"
+          ]
+        },
+        "CreditorAccount": {
+          "title": "CreditorAccount",
+          "example": {
+            "SchemeName": "SortCodeAccountNumber",
+            "Identification": "1987651009427726",
+            "Name": "ACME Inc",
+            "SecondaryIdentification": "1009427726"
+          },
+          "type": "object",
+          "properties": {
+            "SchemeName": {
+              "type": "string"
+            },
+            "Identification": {
+              "type": "string"
+            },
+            "Name": {
+              "type": "string"
+            },
+            "SecondaryIdentification": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "SchemeName",
+            "Identification",
+            "Name",
+            "SecondaryIdentification"
+          ]
+        },
+        "RemittanceInformation": {
+          "title": "RemittanceInformation",
+          "example": {
+            "Reference": "FRESCO-101",
+            "Unstructured": "Maintenance Fee"
+          },
+          "type": "object",
+          "properties": {
+            "Reference": {
+              "type": "string"
+            },
+            "Unstructured": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Reference",
+            "Unstructured"
+          ]
+        },
+        "Links": {
+          "title": "Links",
+          "example": {
+            "Self": "https://api.nedbank.co.za/apimarket/sandbox/open-banking/v3.1/pisp/domestic-payments/26381573"
+          },
+          "type": "object",
+          "properties": {
+            "Self": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Self"
+          ]
+        },
+        "Paymentsubmissionstatus": {
+          "title": "Paymentsubmissionstatus",
+          "example": {
+            "Data": {
+              "DomesticPaymentId": "26381573",
+              "ConsentId": "8e0672a2-1ab6-494b-bf28-8e692def102d",
+              "Status": "AcceptedSettlementCompleted",
+              "CreationDateTime": "2022-12-28T05:09:46+00:00",
+              "StatusUpdateDateTime": "2022-12-28T05:14:59+00:00",
+              "Initiation": {
+                "InstructionIdentification": "abc112",
+                "EndToEndIdentification": "def123",
+                "InstructedAmount": {
+                  "Amount": "55.60",
+                  "Currency": "ZAR"
+                },
+                "DebtorAccount": {
+                  "SchemeName": "Profile",
+                  "Identification": "d16a3c533d71f49ae628bf7cf7993c1b"
+                },
+                "CreditorAccount": {
+                  "SchemeName": "SortCodeAccountNumber",
+                  "Identification": "1987651009427726",
+                  "Name": "ACME Inc",
+                  "SecondaryIdentification": "1009427726"
+                },
+                "RemittanceInformation": {
+                  "Reference": "FRESCO-101",
+                  "Unstructured": "Maintenance Fee"
+                }
+              }
+            },
+            "Links": {
+              "Self": "https://api.nedbank.co.za/apimarket/sandbox/open-banking/v3.1/pisp/domestic-payments/26381573"
+            },
+            "Meta": {}
+          },
+          "type": "object",
+          "properties": {
+            "Data": {
+              "$ref": "#/definitions/Data1"
+            },
+            "Links": {
+              "$ref": "#/definitions/Links"
+            },
+            "Meta": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "Data",
+            "Links",
+            "Meta"
+          ]
+        },
+        "Data1": {
+          "title": "Data1",
+          "example": {
+            "DomesticPaymentId": "26381573",
+            "ConsentId": "8e0672a2-1ab6-494b-bf28-8e692def102d",
+            "Status": "AcceptedSettlementCompleted",
+            "CreationDateTime": "2022-12-28T05:09:46+00:00",
+            "StatusUpdateDateTime": "2022-12-28T05:14:59+00:00",
+            "Initiation": {
+              "InstructionIdentification": "abc112",
+              "EndToEndIdentification": "def123",
+              "InstructedAmount": {
+                "Amount": "55.60",
+                "Currency": "ZAR"
+              },
+              "DebtorAccount": {
+                "SchemeName": "Profile",
+                "Identification": "d16a3c533d71f49ae628bf7cf7993c1b"
+              },
+              "CreditorAccount": {
+                "SchemeName": "SortCodeAccountNumber",
+                "Identification": "1987651009427726",
+                "Name": "ACME Inc",
+                "SecondaryIdentification": "1009427726"
+              },
+              "RemittanceInformation": {
+                "Reference": "FRESCO-101",
+                "Unstructured": "Maintenance Fee"
+              }
+            }
+          },
+          "type": "object",
+          "properties": {
+            "DomesticPaymentId": {
+              "type": "string"
+            },
+            "ConsentId": {
+              "type": "string"
+            },
+            "Status": {
+              "type": "string"
+            },
+            "CreationDateTime": {
+              "type": "string"
+            },
+            "StatusUpdateDateTime": {
+              "type": "string"
+            },
+            "Initiation": {
+              "$ref": "#/definitions/Initiation"
+            }
+          },
+          "required": [
+            "DomesticPaymentId",
+            "ConsentId",
+            "Status",
+            "CreationDateTime",
+            "StatusUpdateDateTime",
+            "Initiation"
+          ]
+        }
+      },
+      "tags": [
+        {
+          "name": "Payments"
+        }
+      ]
+    }
+contentType: yaml

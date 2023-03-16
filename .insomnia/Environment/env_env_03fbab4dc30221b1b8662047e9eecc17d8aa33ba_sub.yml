@@ -1,0 +1,14 @@
+_id: env_env_03fbab4dc30221b1b8662047e9eecc17d8aa33ba_sub
+type: Environment
+parentId: env_03fbab4dc30221b1b8662047e9eecc17d8aa33ba
+modified: 1678964617560
+created: 1678964617560
+name: Swagger env
+data:
+  base_path: /
+  scheme: https
+  host: api.icurity.cloud
+dataPropertyOrder: null
+color: null
+isPrivate: false
+metaSortKey: 1678964617560
