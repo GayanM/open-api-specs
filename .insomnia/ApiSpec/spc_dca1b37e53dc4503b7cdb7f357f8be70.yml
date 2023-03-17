@@ -29,7 +29,7 @@ contents: >
           "post": {
             "summary": "Get Access Token",
             "tags": [
-              "Payments"
+              "Paymentss"
             ],
             "operationId": "GetAccessToken",
             "deprecated": false,
