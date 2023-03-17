@@ -1,7 +1,7 @@
 _id: spc_dca1b37e53dc4503b7cdb7f357f8be70
 type: ApiSpec
 parentId: wrk_6eece2de1c2f4677a1d35b17edc4c91e
-modified: 1679034066013
+modified: 1679034225384
 created: 1678964593156
 fileName: Payments.yaml
 contents: >
@@ -29,7 +29,7 @@ contents: >
           "post": {
             "summary": "Get Access Token",
             "tags": [
-              "Paymentss"
+              "Payments"
             ],
             "operationId": "GetAccessToken",
             "deprecated": false,
